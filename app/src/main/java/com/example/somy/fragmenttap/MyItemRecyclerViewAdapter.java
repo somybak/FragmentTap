@@ -15,41 +15,37 @@ import android.widget.ImageView;
 
 
 import com.bumptech.glide.Glide;
-import com.example.somy.fragmenttap.FiveFragment.OnListFragmentInteractionListener;
-import com.example.somy.fragmenttap.dummy.DummyContent.DummyItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
     //TAG
     private final Context context;
-    private final List<String> datas = new ArrayList<>();
-    private final OnListFragmentInteractionListener mListener;
+    private List<String> datas = new ArrayList<>();
+//    private final OnListFragmentInteractionListener mListener;
 
-    public MyItemRecyclerViewAdapter(Context context, OnListFragmentInteractionListener listener) {
+    public MyItemRecyclerViewAdapter(Context context, List<String> datas) {
         this.context = context;
+        this.datas = datas;
 
-        ContentResolver resolver = context.getContentResolver();
-        //1. define ata Uri
-        Uri target = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        String projection[] = {MediaStore.Images.Thumbnails.DATA}; //data : image uri column
+//        ContentResolver resolver = context.getContentResolver();
+//        //1. define ata Uri
+//        Uri target = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+//        String projection[] = {MediaStore.Images.Thumbnails.DATA}; //data : image uri column
+//
+//        Cursor cursor = resolver.query(target, projection, null, null, null);
+//        if(cursor !=null) {
+//            while (cursor.moveToNext()) {
+//                String uriString = cursor.getString(0);
+//             //   Log.d(TAG, "=========="+uriString);
+//                datas.add(uriString);
+//            }
+//            cursor.close();
+//        }
+//        mListener = listener;
 
-        Cursor cursor = resolver.query(target, projection, null, null, null);
-        if(cursor !=null) {
-            while (cursor.moveToNext()) {
-                String uriString = cursor.getString(0);
-             //   Log.d(TAG, "=========="+uriString);
-                datas.add(uriString);
-            }
-            cursor.close();
-        }
-        mListener = listener;
     }
 
 

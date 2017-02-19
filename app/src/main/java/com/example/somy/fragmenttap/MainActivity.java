@@ -28,7 +28,7 @@ import com.example.somy.fragmenttap.dummy.DummyContent;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class MainActivity extends AppCompatActivity implements FiveFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity  {
 
     //define pager, tab
 
@@ -171,10 +171,7 @@ public class MainActivity extends AppCompatActivity implements FiveFragment.OnLi
 
     }
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
-    }
 
     class PagerAdapter extends FragmentStatePagerAdapter {
 
@@ -218,11 +215,14 @@ public class MainActivity extends AppCompatActivity implements FiveFragment.OnLi
                 != PackageManager.PERMISSION_GRANTED
                 || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED
                 ){
             //not permitted
             String permArr[] = {Manifest.permission.ACCESS_FINE_LOCATION
                     , Manifest.permission.ACCESS_COARSE_LOCATION
                     , Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    , Manifest.permission.CAMERA
 
             };
             //define each situation (no permission) and listing
@@ -245,7 +245,8 @@ public class MainActivity extends AppCompatActivity implements FiveFragment.OnLi
         if(requestCode ==REQ_CODE) {
             // 2.1 runtime send to array is permitted
             if(grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                    grantResults[1] == PackageManager.PERMISSION_GRANTED ){
+                    grantResults[1] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[2] == PackageManager.PERMISSION_GRANTED){
                 //2.2run the program
                 init();
             } else{

@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
-    android:name="com.example.somy.fragmenttap.FiveFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:context="com.example.somy.fragmenttap.FiveFragment"
-    tools:listitem="@layout/fragment_item" >
+    android:orientation="vertical">
 
 
-</android.support.v7.widget.RecyclerView>
+
+    <ImageButton
+        android:layout_height="100dp"
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        android:id="@+id/imageButton"
+        android:layout_weight="1.39"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp" />
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.example.somy.fragmenttap.FiveFragment"
+        android:layout_width="354dp"
+        android:layout_height="454dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="com.example.somy.fragmenttap.FiveFragment"
+        tools:listitem="@layout/fragment_item" >
+
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
